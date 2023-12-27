@@ -138,6 +138,7 @@ S3_SIGNATURE_VERSION = getattr(settings, "EXPLORER_S3_SIGNATURE_VERSION", 'v2')
 UNSAFE_RENDERING = getattr(settings, "EXPLORER_UNSAFE_RENDERING", False)
 
 EXPLORER_CHARTS_ENABLED = getattr(settings, "EXPLORER_CHARTS_ENABLED", False)
+EXPLORER_LIMIT_CHART_DATA_ROWS = getattr(settings, "EXPLORER_LIMIT_CHART_DATA_ROWS", False)
 
 # If set to True will autorun queries when viewed which is the historical behavior
 # Default to True if not set in order to be backwards compatible
