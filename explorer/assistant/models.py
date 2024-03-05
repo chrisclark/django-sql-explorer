@@ -17,5 +17,5 @@ class PromptLog(models.Model):
     )
     run_at = models.DateTimeField(auto_now_add=True)
     duration = models.FloatField(blank=True, null=True)  # seconds
-    model = models.CharField(blank=True, max_length=128, default='')
+    model = models.CharField(blank=True, max_length=128, default="")
     error = models.TextField(blank=True, null=True)

@@ -10,7 +10,8 @@ class TestAssistantViews(TestCase):
     @patch("explorer.assistant.utils.openai_client")
     def test_do_modify_query(self, mocked_openai_client):
         # create.return_value should match: resp.choices[0].message
-        mocked_openai_client.return_value.chat.completions.create.return_value = Mock(choices=[Mock(message=Mock(content="smart computer"))])
+        mocked_openai_client.return_value.chat.completions.create.return_value = Mock(
+            choices=[Mock(message=Mock(content="smart computer"))])
         from explorer.assistant.views import run_assistant
         request_data = {
            "sql": "SELECT * FROM explorer_query",
@@ -19,6 +20,7 @@ class TestAssistantViews(TestCase):
         }
         resp = run_assistant(request_data, None)
         self.assertEqual(resp, "smart computer")
+
 
 class TestPromptContext(TestCase):
 
@@ -48,7 +50,6 @@ class TestPromptContext(TestCase):
 
     def test_schema_info_from_table_names(self):
         from explorer.assistant.utils import tables_from_schema_info
-        from explorer.schema import schema_info
         ret = tables_from_schema_info(CONN, ["explorer_query"])
         expected = [("explorer_query", [
             ("id", "AutoField"),

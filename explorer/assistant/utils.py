@@ -50,7 +50,7 @@ def sample_rows_from_tables(connection, table_names):
         ret = f"SAMPLE FROM TABLE {table_name}:\n"
         ret = ret + format_rows_from_table(
             sample_rows_from_table(connection, table_name)
-        ) + '\n\n'
+        ) + "\n\n"
     return ret
 
 
@@ -64,7 +64,7 @@ def sample_rows_from_table(connection, table_name):
 
 
 def format_rows_from_table(rows):
-    column_headers = [desc for desc in rows[0]]
+    column_headers = list(rows[0])
     ret = " | ".join(column_headers) + "\n" + "-" * 50 + "\n"
     for row in rows[1:]:
         row_str = " | ".join(str(item) for item in row)
