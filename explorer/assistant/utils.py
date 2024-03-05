@@ -1,5 +1,4 @@
 import logging
-from openai import OpenAI
 import pandas as pd
 from io import StringIO
 import sqlparse
@@ -8,6 +7,9 @@ from explorer.schema import schema_info
 from explorer.utils import get_valid_connection
 from sql_metadata import Parser
 
+
+if app_settings.EXPLORER_OPENAI_API_KEY:
+    from openai import OpenAI
 
 OPENAI_MODEL = app_settings.EXPLORER_ASSISTANT_MODEL
 ROW_SAMPLE_SIZE = 2

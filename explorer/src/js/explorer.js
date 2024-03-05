@@ -30,7 +30,10 @@ function editorFromTextArea(textarea) {
 export class ExplorerEditor {
     constructor(queryId) {
 
-        setUpAssistant();
+        const aa = document.getElementById('assistant_accordion');
+        if (aa) {
+            setUpAssistant();
+        }
 
         this.queryId = queryId;
         this.$table = $("#preview");

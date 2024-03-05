@@ -14,6 +14,7 @@ class ExplorerContextMixin:
             "can_change": app_settings.EXPLORER_PERMISSION_CHANGE(
                 self.request
             ),
+            "assistant_enabled": app_settings.EXPLORER_OPENAI_API_KEY is not None,
             "csrf_cookie_name": settings.CSRF_COOKIE_NAME,
             "csrf_cookie_httponly": settings.CSRF_COOKIE_HTTPONLY,
             "view_name": self.request.resolver_match.view_name,

@@ -59,13 +59,20 @@ function setUpCopyButtons(){
         const btn = document.createElement('i');
         btn.classList.add('copy-btn');
         btn.classList.add('bi-copy');
-
+        const msg = document.createElement('span');
+        msg.textContent = 'Copied!';
+        msg.style.display = 'none';
+        msg.style.marginLeft = '8px';
+        btn.appendChild(msg);
         pre.appendChild(btn);
 
         btn.addEventListener('click', function() {
             const code = this.parentNode.firstElementChild.innerText;
             navigator.clipboard.writeText(code).then(() => {
-                alert('Code copied to clipboard!');
+                msg.style.display = 'inline';
+                setTimeout(() => {
+                    msg.style.display = 'none';
+                }, 2000);
             }).catch(err => {
                 console.error('Error in copying text: ', err);
             });
