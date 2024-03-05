@@ -1,0 +1,43 @@
+<div class ="accordion accordion-flush my-3" id="assistant_accordion">
+    <div class="accordion-item">
+        <div class="accordion-header" id="assistant_accordion_header">
+                <button class="accordion-button bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#assistant_collapse" aria-expanded="false" aria-controls="assistant_collapse">
+                    <label for="id_assistant_input">SQL Assistant</label>
+                </button>
+        </div>
+    </div>
+    <div id="assistant_collapse" class="accordion-collapse collapse" aria-labelledby="assistant_accordion_header" data-bs-parent="#assistant_accordion">
+        <div class="accordion-body">
+
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" name="assistant-current-query" id="include_query" autocomplete="off" checked>
+                <label class="form-check-label" for="include_query">Include Current Query</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" name="assistant-relevant-table-schemas" id="include_relevant_tables" autocomplete="off" checked>
+                <label class="form-check-label" for="include_relevant_tables">Include Relevant Table Schemas</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" name="assistant-results-sample" id="include_results_sample" autocomplete="off" checked>
+                <label class="form-check-label" for="include_results_sample">Include Results Sample</label>
+            </div>
+
+            <div class="mt-3">
+                <textarea
+                    class="form-control" id="id_assistant_input"
+                    name="sql_assistant" rows="3"></textarea>
+                <label for="id_assistant_input" class="form-label" id="id_assistant_input_label"></label>
+            </div>
+            <div class="text-end">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-secondary" id="ask_assistant_btn">Ask Assistant</button>
+                </div>
+            </div>
+            <div id="response_block" style="display: none" class="position-relative">
+                <div class="position-absolute start-50 translate-middle top-0 px-2 bg-white rounded-2">Response</div>
+                <div class="mt-3 p-2 rounded-2 border bg-light" id="assistant_response"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

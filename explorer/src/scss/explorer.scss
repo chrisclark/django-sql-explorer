@@ -124,3 +124,11 @@ nav.navbar {
         color: var(--bs-primary-bg-subtle) !important;
     }
 }
+
+.dropdown-toggle::after {
+    margin-left: 0px !important;
+}
+
+#assistant_description_label {
+    white-space: pre-wrap;
+}

@@ -142,3 +142,4 @@ EXPLORER_COLLECT_ENDPOINT_URL = "https://collect.sqlexplorer.io/stat"
 # - user will need to run by clicking the Save & Run Button to execute
 EXPLORER_AUTORUN_QUERY_WITH_PARAMS = getattr(settings, "EXPLORER_AUTORUN_QUERY_WITH_PARAMS", True)
 VITE_DEV_MODE = getattr(settings, "VITE_DEV_MODE", False)
+EXPLORER_OPENAI_API_KEY = getattr(settings, "OPENAI_API_KEY", None)

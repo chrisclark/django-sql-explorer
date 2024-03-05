@@ -115,3 +115,4 @@ EXPLORER_TASKS_ENABLED = False
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
 EXPLORER_S3_BUCKET = "thisismybucket.therearemanylikeit.butthisoneismine"
+OPENAI_API_KEY = os.environ.get("OPENROUTER_API_KEY")
