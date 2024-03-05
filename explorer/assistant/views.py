@@ -16,9 +16,9 @@ def run_assistant(request_data, user):
     user_prompt = ""
 
     sql = None
-    include_current_query = request_data["include_current_query"]
-    include_relevant_tables = request_data["include_relevant_tables"]
-    include_results_sample = request_data["include_results_sample"]
+    include_current_query = request_data.get("include_current_query", False)
+    include_relevant_tables = request_data.get("include_relevant_tables", False)
+    include_results_sample = request_data.get("include_results_sample", False)
 
     if include_current_query:
         sql = request_data["sql"]
