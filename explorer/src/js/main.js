@@ -7,7 +7,6 @@ the page. The dynamic import() allows Vite to chunk the JS and only load what's
 necessary for each page. Concretely, this matters because the pages with SQL
 Editors require fairly heavy JS (CodeMirror).
 */
-
 import * as bootstrap from 'bootstrap'; // eslint-disable-line no-unused-vars
 
 const route_initializers = {

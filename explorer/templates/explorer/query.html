@@ -126,6 +126,9 @@
                         {% endif %}
                     </div>
                 </div>
+                {% if assistant_enabled %}
+                    {% include 'explorer/assistant.html' %}
+                {% endif %}
                 </form>
             </div>
         </div>

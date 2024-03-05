@@ -56,6 +56,7 @@ class StatNames(SelfNamedEnum):
     QUERY_RUN = auto()
     QUERY_STREAM = auto()
     STARTUP_STATS = auto()
+    ASSISTANT_RUN = auto()
 
 
 class Stat:

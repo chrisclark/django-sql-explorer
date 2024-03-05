@@ -6,6 +6,7 @@ from explorer.views import (
     StreamQueryView, format_sql,
 )
 
+from assistant.views import assistant_help
 
 urlpatterns = [
     path(
@@ -42,4 +43,5 @@ urlpatterns = [
     path("favorites/", QueryFavoritesView.as_view(), name="query_favorites"),
     path("favorite/<int:query_id>", QueryFavoriteView.as_view(), name="query_favorite"),
     path("", ListQueryView.as_view(), name="explorer_index"),
+    path("assistant/", assistant_help, name="assistant"),
 ]

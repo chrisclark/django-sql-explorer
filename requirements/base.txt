@@ -2,3 +2,4 @@ sqlparse>=0.4.0
 coverage
 factory-boy>=3.1.0
 requests~=2.31.0
+sql_metadata>=2.10
