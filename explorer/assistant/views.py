@@ -12,27 +12,27 @@ from explorer.assistant.utils import (
 
 def run_assistant(request_data, user):
 
-    user_prompt = ''
+    user_prompt = ""
 
     sql = None
-    if request_data['include_current_query']:
-        sql = request_data['sql']
+    if request_data["include_current_query"]:
+        sql = request_data["sql"]
         user_prompt += f"## Existing SQL ##\n\n{sql}\n\n"
 
-    if request_data['include_relevant_tables']:
-        table_struct = tables_from_schema_info(request_data['connection'],
+    if request_data["include_relevant_tables"]:
+        table_struct = tables_from_schema_info(request_data["connection"],
                                                get_table_names_from_query(sql))
         user_prompt += f"## Table Structure ##\n\n{table_struct}\n\n"
 
-    if request_data['include_results_sample']:
-        results_sample = sample_rows_from_tables(request_data['connection'],
+    if request_data["include_results_sample"]:
+        results_sample = sample_rows_from_tables(request_data["connection"],
                                                  get_table_names_from_query(sql))
         user_prompt += f"## Sample Results ##\n\n{results_sample}\n\n"
 
     user_prompt += f"## User's Request to Assistant ##\n\n{request_data['assistant_request']}\n\n"
 
     prompt = master_prompt
-    prompt['user'] = user_prompt
+    prompt["user"] = user_prompt
 
     start = timezone.now()
     pl = PromptLog(
@@ -55,21 +55,21 @@ def run_assistant(request_data, user):
 
 
 def assistant_help(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         try:
             data = json.loads(request.body)
 
             resp = run_assistant(data, request.user)
 
             response_data = {
-                'status': 'success',
-                'message': resp
+                "status": "success",
+                "message": resp
             }
 
             return JsonResponse(response_data)
 
         except json.JSONDecodeError:
-            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
+            return JsonResponse({"status": "error", "message": "Invalid JSON"}, status=400)
 
     else:
-        return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
+        return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)

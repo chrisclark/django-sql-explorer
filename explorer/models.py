@@ -7,7 +7,6 @@ from django.db import DatabaseError, models, transaction
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from explorer.assistant.models import PromptLog
 from explorer import app_settings
 from explorer.tracker import Stat, StatNames
 from explorer.utils import (

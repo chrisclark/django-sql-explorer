@@ -5,7 +5,7 @@ from django.conf import settings
 class PromptLog(models.Model):
 
     class Meta:
-        app_label = 'explorer'
+        app_label = "explorer"
 
     prompt = models.TextField(blank=True)
     response = models.TextField(blank=True)

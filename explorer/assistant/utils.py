@@ -9,14 +9,14 @@ from explorer.utils import get_valid_connection
 from sql_metadata import Parser
 
 
-OPENAI_MODEL = 'gpt-4'
+OPENAI_MODEL = "gpt-4"
 ROW_SAMPLE_SIZE = 2
 
 
 def openai_client():
     return OpenAI(
         api_key=EXPLORER_OPENAI_API_KEY,
-        base_url='https://openrouter.ai/api/v1'
+        base_url="https://openrouter.ai/api/v1"
     )
 
 
@@ -24,15 +24,15 @@ def do_req(prompt, history=None):
     if not history:
         history = []
     messages = history + [
-        {"role": "system", "content": prompt['system']},
-        {"role": "user", "content": prompt['user']},
+        {"role": "system", "content": prompt["system"]},
+        {"role": "user", "content": prompt["user"]},
     ]
     resp = openai_client().chat.completions.create(
       model=OPENAI_MODEL,
       messages=messages
     )
     messages.append(resp.choices[0].message)
-    logging.info(f'Response: {messages}')
+    logging.info(f"Response: {messages}")
     return messages
 
 
@@ -48,7 +48,7 @@ def q(query, conn):
 
 
 def format_sql(q):
-    return sqlparse.format(q, reindent=True, keyword_case='upper')
+    return sqlparse.format(q, reindent=True, keyword_case="upper")
 
 
 def extract_response(r):
@@ -79,7 +79,7 @@ def sample_rows_from_table(connection, table_name, ROW_SAMPLE_SIZE=5):
 def sample_rows_from_tables(connection, table_names):
     ret = None
     for table_name in table_names:
-        ret = f'SAMPLE FROM TABLE {table_name}:\n'
+        ret = f"SAMPLE FROM TABLE {table_name}:\n"
         ret = ret + format_rows_from_table(
             sample_rows_from_table(connection, table_name)
         ) + '\n\n'

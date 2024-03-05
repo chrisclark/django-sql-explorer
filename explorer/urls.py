@@ -43,5 +43,5 @@ urlpatterns = [
     path("favorites/", QueryFavoritesView.as_view(), name="query_favorites"),
     path("favorite/<int:query_id>", QueryFavoriteView.as_view(), name="query_favorite"),
     path("", ListQueryView.as_view(), name="explorer_index"),
-    path('assistant/', assistant_help, name='assistant'),
+    path("assistant/", assistant_help, name="assistant"),
 ]
