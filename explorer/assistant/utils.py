@@ -3,19 +3,19 @@ from openai import OpenAI
 import pandas as pd
 from io import StringIO
 import sqlparse
-from explorer.app_settings import EXPLORER_OPENAI_API_KEY
+from explorer import app_settings
 from explorer.schema import schema_info
 from explorer.utils import get_valid_connection
 from sql_metadata import Parser
 
 
-OPENAI_MODEL = "gpt-4"
+OPENAI_MODEL = app_settings.EXPLORER_ASSISTANT_MODEL
 ROW_SAMPLE_SIZE = 2
 
 
 def openai_client():
     return OpenAI(
-        api_key=EXPLORER_OPENAI_API_KEY,
+        api_key=app_settings.EXPLORER_OPENAI_API_KEY,
         base_url="https://openrouter.ai/api/v1"
     )
 

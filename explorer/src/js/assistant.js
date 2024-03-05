@@ -45,10 +45,30 @@ export function setUpAssistant() {
             const output = DOMPurify.sanitize(marked.parse(data.message));
             document.getElementById("response_block").style.display = "block";
             document.getElementById("assistant_response").innerHTML = output;
-            console.log(data.message);
+            setUpCopyButtons();
         })
             .catch(error => {
             console.error('Error:', error);
+        });
+    });
+}
+
+function setUpCopyButtons(){
+    document.querySelectorAll('#assistant_response pre').forEach(pre => {
+
+        const btn = document.createElement('i');
+        btn.classList.add('copy-btn');
+        btn.classList.add('bi-copy');
+
+        pre.appendChild(btn);
+
+        btn.addEventListener('click', function() {
+            const code = this.parentNode.firstElementChild.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied to clipboard!');
+            }).catch(err => {
+                console.error('Error in copying text: ', err);
+            });
         });
     });
 }

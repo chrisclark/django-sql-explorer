@@ -132,3 +132,14 @@ nav.navbar {
 #assistant_description_label {
     white-space: pre-wrap;
 }
+
+#assistant_response pre {
+    position: relative;
+}
+
+#assistant_response .copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}

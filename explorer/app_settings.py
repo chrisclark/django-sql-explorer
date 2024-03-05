@@ -143,3 +143,5 @@ EXPLORER_COLLECT_ENDPOINT_URL = "https://collect.sqlexplorer.io/stat"
 EXPLORER_AUTORUN_QUERY_WITH_PARAMS = getattr(settings, "EXPLORER_AUTORUN_QUERY_WITH_PARAMS", True)
 VITE_DEV_MODE = getattr(settings, "VITE_DEV_MODE", False)
 EXPLORER_OPENAI_API_KEY = getattr(settings, "OPENAI_API_KEY", None)
+EXPLORER_ASSISTANT_MODEL = getattr(settings, "EXPLORER_ASSISTANT_MODEL", "gpt-4-0125-preview")
+EXPLORER_ASSISTANT_BASE_URL = getattr(settings, "EXPLORER_ASSISTANT_BASE_URL", None)
